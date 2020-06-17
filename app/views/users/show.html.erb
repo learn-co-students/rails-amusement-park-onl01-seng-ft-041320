@@ -1,0 +1,27 @@
+<div class="center">
+  <div class="center alert">
+    <p><%= @message %></p>
+  </div>
+  <div class="info">
+    <% if @user.admin == true %>
+      <p>
+      <strong>ADMIN</strong>
+      </p>
+    <% end %>
+    <p>
+      <strong>Name:</strong> <%= @user.name %>
+    </p>
+    <p>
+      <strong>Tickets:</strong> <%= @user.tickets if @user.tickets%>
+    </p>
+    <p>
+      <strong>Mood:</strong> <%= @user.mood if @user.happiness && @user.nausea%>
+    </p>
+    <p>
+      <strong>Height:</strong> <%= "#{@user.height} inches" if @user.height%>
+    </p>
+    <p>
+    <%= link_to("See attractions", attractions_path) %>
+    </p>
+  </div>
+</div>
