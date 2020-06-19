@@ -1,0 +1,22 @@
+<div class="center">
+
+  <div class="info">
+    <p><strong>Name:</strong> <%= @attraction.name %></p>
+    <p><strong>Total Number of Users:</strong> <%= @attraction.counter %></p>
+    <p><strong>Ticket Requirement:</strong> <%= @attraction.tickets %></p>
+    <p><strong>Height Requirement:</strong> <%= @attraction.min_height %> inches</p>
+    <p><strong>Nausea Rating:</strong> <%= @attraction.nausea_rating %></p>
+    <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating %></p>
+    <% if current_user.admin %>
+    <%= link_to  "Edit Attraction", edit_attraction_path %>
+    <% else %>
+    <form class="new_ride" id="new_ride" action="/rides" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="nwRx1tAbCMTzlqA7rojSDU8YCQ3kXlZe1BSpe8tm63/GyOcoVu5q+Dm9SAEAPWHmFsm1Ca2azU7Xoo8bwuhTgg==">
+        <input type="hidden" value="<%=@user.id%>" name=ride[user_id] id="ride_user_id"><br>
+        <input type="hidden" value="<%=@attraction.id%>" name="ride[attraction_id]" id="ride_attraction_id"><br>
+        <input type="submit" name="submit" value="Go on this ride" data-disable-with="Go on this ride">
+    </form>  
+    <% end %>
+
+  </div>
+
+</div>
