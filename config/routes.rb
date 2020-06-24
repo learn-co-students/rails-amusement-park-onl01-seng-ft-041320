@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
+  resources :attractions
+  resources :welcome, only: [:new, :create]
+  resources :rides, only: [:create]
+
+  delete '/welcome' => 'welcome#destroy'
+  get '/' => 'welcome#home'
+  get '/signin' => 'welcome#new'
+
+
+  root 'welcome#home'
 end
