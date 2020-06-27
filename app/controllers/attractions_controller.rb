@@ -4,4 +4,22 @@ class AttractionsController < ApplicationController
         @attractions = Attraction.all
     end
 
+    def new
+        @attraction = Attraction.new
+    end
+
+    def show
+        @attraction = Attraction.find_by(id: params[:id])
+    end
+
+    private
+        def attraction_params
+        params.require(:attraction).permit(
+            :name,
+            :min_height,
+            :tickets,
+            :happiness_rating,
+            :nausea_ratiing
+        )
+        end
 end

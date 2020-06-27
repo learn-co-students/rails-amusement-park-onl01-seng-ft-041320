@@ -6,7 +6,6 @@
             <li><%= link_to "Show #{attraction.name}", attraction_path(attraction) %></li>
             <li><%= attraction.tickets %></li>
         </ul> <br>
-        <%= link_to 'New Attraction', new_attraction_path %>
     <% end %>
 <% else %>
     <% @attractions.each do |attraction| %>
@@ -15,4 +14,8 @@
             <li><%= attraction.tickets %></li>
         </ul>
     <% end %>
+<% end %> <br>
+
+<% if current_user.admin %>
+    <%= link_to 'New Attraction', new_attraction_path %>
 <% end %>
