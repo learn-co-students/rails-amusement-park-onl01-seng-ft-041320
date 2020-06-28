@@ -1,0 +1,14 @@
+
+<div>
+  <%= form_for :user do |f| %>
+    <%= f.label :name %>
+    <%= f.collection_select(:name, User.all, :name, :name) %>
+    <%= f.label :password, "password:" %>
+    <%= f.password_field :password %>
+    <%= f.submit "Sign In" %>
+  <% end %>
+</div>
+- or -
+<p>
+  <%= link_to "Sign up!", new_user_path %>
+<p>
