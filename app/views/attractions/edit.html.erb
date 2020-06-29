@@ -1,7 +1,7 @@
-<h1>New Attraction</h1>
+<h1>Edit Attraction</h1>
 
 <%= form_for @attraction do |f| %>
-    
+
 <%= f.label :name, 'Name' %>
 <%= f.text_field :name %> <br>
 
@@ -17,6 +17,6 @@
 <%= f.label :tickets, 'Tickets Requirement' %>
 <%= f.text_field :tickets %> <br>
 
-<%= f.submit "Create Attraction" %>
+<%= f.submit "Update Attraction" %>
 
 <% end %>

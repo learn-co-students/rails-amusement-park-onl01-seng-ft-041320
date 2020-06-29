@@ -1,8 +1,12 @@
 <h1>User</h1>
 
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %> <br>
+
 <% if @user.admin %>
 ADMIN
-<% end %>
+<% end %> <br>
 
 Admin? <%= @user.admin %> <br>
 Name: <%= @user.name %> <br>
