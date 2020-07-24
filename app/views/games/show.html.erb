@@ -1,0 +1,17 @@
+<h1>Game</h1>
+
+Game <%= @game.name %> <br>
+Height Requirement: <%= @game.min_height %>
+Happiness Rating: <%= @game.happiness_rating %> <br>
+Nausea Rating: <%= @game.nausea_rating %> <br>
+Ticket Requirement: <%= @game.tickets %> <br>
+
+<% if current_user.admin %>
+    <%= link_to "Edit Game", edit_game_path(@game), method: :get %>
+<% else %>
+    <%= form_for @ride do |f| %>
+        <%= f.hidden_field :user_id %><br />
+        <%= f.hidden_field :game_id %><br />
+        <%= f.submit "Go on this ride" %>
+    <% end %>
+<% end %>

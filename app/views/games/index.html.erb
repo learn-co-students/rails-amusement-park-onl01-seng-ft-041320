@@ -1,0 +1,21 @@
+<h1>Games</h1>
+
+<% if current_user.admin %>
+    <% @games.each do |game| %>
+        <ul>
+            <li><%= link_to "Show #{game.name}", game_path(game) %></li>
+            <li><%= game.tickets %></li>
+        </ul> <br>
+    <% end %>
+<% else %>
+    <% @games.each do |game| %>
+        <ul>
+            <li><%= link_to "Go on #{game.name}", game_path(game) %></li>
+            <li><%= game.tickets %></li>
+        </ul>
+    <% end %>
+<% end %> <br>
+
+<% if current_user.admin %>
+    <%= link_to 'New Game', new_game_path %>
+<% end %>
