@@ -1,10 +1,10 @@
-class Ride < ActiveRecord::Base
+class Score < ActiveRecord::Base
     belongs_to :game
     belongs_to :user
 
     def take_score
         if self.enough_tickets && self.tall_enough
-            ride
+            game
         elsif self.enough_tickets && !self.tall_enough
             "Sorry. " + not_tall_enough
         elsif !self.enough_tickets && self.tall_enough
@@ -23,7 +23,7 @@ class Ride < ActiveRecord::Base
         :nausea => updated_nausea,
         :tickets => updated_tickets
         )
-        "Thanks for riding the #{self.game.name}!"
+        "Thanks for playing the #{self.game.name}!"
     end
 
     def enough_tickets
@@ -41,11 +41,11 @@ class Ride < ActiveRecord::Base
     end
 
     def not_enough_tickets
-        "Sorry. You do not have enough tickets to ride the #{self.game.name}."
+        "Sorry. You do not have enough tickets to play the #{self.game.name}."
     end
 
     def not_tall_enough
-        "You are not tall enough to ride the #{self.game.name}."
+        "You are not tall enough to play the #{self.game.name}."
     end
 
 end

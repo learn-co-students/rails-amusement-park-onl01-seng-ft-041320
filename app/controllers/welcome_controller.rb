@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  skip_before_action :login_in?
+  skip_before_action :logged_in?
   
   def home
   end
