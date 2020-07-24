@@ -36,7 +36,7 @@ class GamesController < ApplicationController
             :min_height,
             :tickets,
             :happiness_rating,
-            :nausea_ratiing
+            :nausea_rating
         )
         end
 end

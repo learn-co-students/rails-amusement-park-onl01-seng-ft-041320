@@ -7,7 +7,9 @@ Nausea Rating: <%= @attraction.nausea_rating %> <br>
 Ticket Requirement: <%= @attraction.tickets %> <br>
 
 <% if current_user.admin %>
-    <%= link_to "Edit Attraction", edit_attraction_path(@attraction), method: :get %>
+    <%= link_to "Edit Attraction", edit_attraction_path(@attraction), method: :get %></br>
+    <%= link_to "New Attraction", new_attraction_path(@attraction), method: :get %></br>
+    <%= link_to "Attraction List", attraction_path(@attraction), method: :get %>
 <% else %>
     <%= form_for @ride do |f| %>
         <%= f.hidden_field :user_id %><br />
