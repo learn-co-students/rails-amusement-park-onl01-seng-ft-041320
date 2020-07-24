@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_140120) do
 
   create_table "scores", force: :cascade do |t|
     t.string "user_id"
-    t.string "attraction_id"
+    t.string "game_id"
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

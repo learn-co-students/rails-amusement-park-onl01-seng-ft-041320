@@ -1,3 +1,13 @@
-Welcome to the Home Page ; )
+Welcome to Project 3 Amusement Park and Games
 
 <%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>!
+
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% if session[:user_id] %>
+  <h1><%= @user.name %></h1>
+  <h2>Email: <%= @user.email %></h2>
+  <h2>Facebook UID: <%= @user.uid %></h2>
+  <img src="<%= @user.image %>">
+<% else %>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>
